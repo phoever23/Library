@@ -11,16 +11,7 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
     return myLibrary
 }
-
-// const btn = document.querySelector("button")
-// const title = document.getElementById("title").value
-// btn.addEventListener("click", function (e) {
-//     console.log(title)
-// })
-
-
 const cards = document.querySelector(".cards")
-
 
 function displayBooks(library) {
     library.forEach(book => {
@@ -34,9 +25,27 @@ function displayBooks(library) {
     })
 }
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+const btn = document.querySelector("button")
+btn.addEventListener("click", function (e) {
+    removeAllChildNodes(cards)
+    const title = document.getElementById("title").value
+    const author = document.getElementById("author").value
+    const pages = document.getElementById("pages").value
+    const newBook = new Book(title, author, pages)
+    addBookToLibrary(newBook)
+    displayBooks(myLibrary)
+})
+
 // for test use
-const book1 = new Book("harry potter", "JK", 666, true)
-const book2 = new Book("1984", "george", 321, false)
-addBookToLibrary(book1)
-addBookToLibrary(book2)
-displayBooks(myLibrary)
+// const book1 = new Book("harry potter", "JK", 666, true)
+// const book2 = new Book("1984", "george", 321, false)
+// addBookToLibrary(book1)
+// addBookToLibrary(book2)
+// displayBooks(myLibrary)
+
