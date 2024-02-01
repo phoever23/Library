@@ -5,9 +5,6 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function () {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
-    }
 }
 
 function addBookToLibrary(book) {
@@ -15,4 +12,31 @@ function addBookToLibrary(book) {
     return myLibrary
 }
 
-let myBook = new Book("harry", "potter", 123, true)
+// const btn = document.querySelector("button")
+// const title = document.getElementById("title").value
+// btn.addEventListener("click", function (e) {
+//     console.log(title)
+// })
+
+
+const cards = document.querySelector(".cards")
+
+
+function displayBooks(library) {
+    library.forEach(book => {
+        const card = document.createElement("ul")
+        cards.appendChild(card)
+        for (const key in book) {
+            const li = document.createElement("li")
+            li.textContent = `${key}: ${book[key]}`
+            card.appendChild(li)
+        }
+    })
+}
+
+// for test use
+const book1 = new Book("harry potter", "JK", 666, true)
+const book2 = new Book("1984", "george", 321, false)
+addBookToLibrary(book1)
+addBookToLibrary(book2)
+displayBooks(myLibrary)
