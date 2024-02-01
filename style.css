@@ -1,7 +1,12 @@
 body {
     text-align: center;
+    background-color: #e6b12e;
 }
 
 ul {
     list-style-type: none;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 10px;
+    border-left: #8c959a 1rem solid;
 }
