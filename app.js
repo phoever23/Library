@@ -1,10 +1,9 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
 }
 
 function addBookToLibrary(book) {
@@ -23,10 +22,16 @@ function displayBooks(library) {
             li.textContent = `${key}: ${book[key]}`
             card.appendChild(li)
         }
+        //add delete button
         const delButton = document.createElement("button")
         delButton.className = "del"
         delButton.innerText = "DELETE"
         card.appendChild(delButton)
+        //add read status button
+        const read = document.createElement("button")
+        read.className = "read"
+        read.innerText = "read"
+        card.appendChild(read)
     })
 }
 
@@ -53,21 +58,27 @@ btn.addEventListener("click", function (e) {
         document.getElementById("author").value = ""
         document.getElementById("pages").value = ""
 
-        // add delete button
+        //delete button
         let delbuttons = document.querySelectorAll(".del")
         delbuttons.forEach(delbutton => {
             delbutton.addEventListener("click", function (e) {
                 delbutton.parentNode.remove()
             })
         });
+        // change read status
+        let reads = document.querySelectorAll(".read")
+        reads.forEach(read => {
+            read.addEventListener("click", function (e) {
+                if (read.innerText === "read") {
+                    read.innerText = "not read"
+                } else {
+                    read.innerText = "read"
+                }
+            })
+        });
     }
 })
 
 
-// for test use
-// const book1 = new Book("harry potter", "JK", 666, true)
-// const book2 = new Book("1984", "george", 321, false)
-// addBookToLibrary(book1)
-// addBookToLibrary(book2)
-// displayBooks(myLibrary)
+
 
