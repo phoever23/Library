@@ -39,23 +39,28 @@ function removeAllChildNodes(parent) {
 const btn = document.querySelector("button")
 btn.addEventListener("click", function (e) {
     removeAllChildNodes(cards)
+
     const title = document.getElementById("title").value
     const author = document.getElementById("author").value
     const pages = document.getElementById("pages").value
-    const newBook = new Book(title, author, pages)
-    addBookToLibrary(newBook)
-    displayBooks(myLibrary)
-    document.getElementById("title").value = ""
-    document.getElementById("author").value = ""
-    document.getElementById("pages").value = ""
+    if (title === "" || author === "" || pages === "") {
+        alert("Please enter the infomation!")
+    } else {
+        const newBook = new Book(title, author, pages)
+        addBookToLibrary(newBook)
+        displayBooks(myLibrary)
+        document.getElementById("title").value = ""
+        document.getElementById("author").value = ""
+        document.getElementById("pages").value = ""
 
-    // add delete button
-    let delbuttons = document.querySelectorAll(".del")
-    delbuttons.forEach(delbutton => {
-        delbutton.addEventListener("click", function (e) {
-            delbutton.parentNode.remove()
-        })
-    });
+        // add delete button
+        let delbuttons = document.querySelectorAll(".del")
+        delbuttons.forEach(delbutton => {
+            delbutton.addEventListener("click", function (e) {
+                delbutton.parentNode.remove()
+            })
+        });
+    }
 })
 
 
