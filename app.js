@@ -11,6 +11,7 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
     return myLibrary
 }
+
 const cards = document.querySelector(".cards")
 
 function displayBooks(library) {
@@ -22,6 +23,10 @@ function displayBooks(library) {
             li.textContent = `${key}: ${book[key]}`
             card.appendChild(li)
         }
+        const delButton = document.createElement("button")
+        delButton.className = "del"
+        delButton.innerText = "DELETE"
+        card.appendChild(delButton)
     })
 }
 
@@ -40,7 +45,23 @@ btn.addEventListener("click", function (e) {
     const newBook = new Book(title, author, pages)
     addBookToLibrary(newBook)
     displayBooks(myLibrary)
+    document.getElementById("title").value = ""
+    document.getElementById("author").value = ""
+    document.getElementById("pages").value = ""
+
+    // add delete button
+    let delbuttons = document.querySelectorAll(".del")
+    delbuttons.forEach(delbutton => {
+        delbutton.addEventListener("click", function (e) {
+            delbutton.parentNode.remove()
+        })
+
+    });
 })
+
+
+
+
 
 // for test use
 // const book1 = new Book("harry potter", "JK", 666, true)
