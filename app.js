@@ -55,12 +55,8 @@ btn.addEventListener("click", function (e) {
         delbutton.addEventListener("click", function (e) {
             delbutton.parentNode.remove()
         })
-
     });
 })
-
-
-
 
 
 // for test use
