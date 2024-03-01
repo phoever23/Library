@@ -3,6 +3,24 @@ body {
     background-color: #e6b12e;
 }
 
+#form {
+    border: white 1px solid;
+    border-radius: 10px;
+    margin: 5rem auto;
+    width: 500px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+button[type=submit] {
+    grid-column: 2 / 3;
+}
+
 ul {
     list-style-type: none;
     padding: 20px 40px;

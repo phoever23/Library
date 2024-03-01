@@ -28,10 +28,14 @@ function displayBooks(library) {
         delButton.innerText = "DELETE"
         card.appendChild(delButton)
         //add read status button
-        const read = document.createElement("button")
-        read.className = "read"
-        read.innerText = "read"
-        card.appendChild(read)
+        const readButton = document.createElement("button")
+        if (document.getElementById("read").checked) {
+            readButton.innerText = "read"
+        } else {
+            readButton.innerText = "not read"
+        }
+        readButton.className = "read"
+        card.appendChild(readButton)
     })
 }
 
@@ -48,9 +52,7 @@ btn.addEventListener("click", function (e) {
     const title = document.getElementById("title").value
     const author = document.getElementById("author").value
     const pages = document.getElementById("pages").value
-    if (title === "" || author === "" || pages === "") {
-        alert("Please enter the infomation!")
-    } else {
+    if (title !== "" && author !== "" && pages !== "") {
         const newBook = new Book(title, author, pages)
         addBookToLibrary(newBook)
         displayBooks(myLibrary)

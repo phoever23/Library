@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js" defer></script>
+    </head>
 
 <body>
-    <h1>Odin Library</h1>
-    <form>
-        <div>
+    <h1>A Simple Library</h1>
+    <div id="form">
+        <form>
             <label for="title">Book Title:</label>
-            <input type="text" name="title" id="title">
-        </div>
-
-        <div>
+            <input type="text" name="title" id="title" required>
             <label for="author">Author:</label>
-            <input type="text" name="author" id="author">
-        </div>
-
-        <div>
+            <input type="text" name="author" id="author" required>
             <label for="pages">Pages:</label>
-            <input type="number" name="pages" id="pages">
-        </div>
-
-        <button type="button">Add a book</button>
-
-    </form>
+            <input type="number" name="pages" id="pages" required>
+            Have you read it?
+            <div>
+                <input type="radio" name="read" id="read" value="read">
+                <label for="read">Yes</label>
+                <input type="radio" name="read" id="not-read" value="not read">
+                <label for="not-read">No</label>
+            </div>
+            <button type="submit">Add a book</button>
+        </form>
+    </div>
 
     <div class="cards">
     </div>
-
 </body>
 
 </html>
